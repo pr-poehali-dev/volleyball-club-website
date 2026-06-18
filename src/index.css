@@ -4,12 +4,14 @@
 
 @layer base {
   :root {
-    --background: 222 60% 8%;
-    --foreground: 0 0% 98%;
+    --background: 202 70% 92%;
+    --foreground: 215 60% 12%;
 
-    --brand: 215 70% 28%;
+    --brand: 215 75% 22%;
     --brand-foreground: 0 0% 100%;
-    --electric: 200 90% 70%;
+    --electric: 25 100% 58%;
+    --surface: 202 60% 97%;
+    --surface-dark: 215 55% 18%;
 
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
@@ -118,18 +120,30 @@
 .bg-electric {
   background-color: hsl(var(--electric));
 }
+.bg-surface {
+  background-color: hsl(var(--surface));
+}
 
 .diag-clip {
   clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
 }
+.diag-top {
+  clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 100%);
+}
 .text-stroke {
-  -webkit-text-stroke: 1px hsl(var(--electric));
+  -webkit-text-stroke: 2px hsl(var(--brand));
   color: transparent;
 }
 .grain {
   background-image: radial-gradient(
-    hsl(var(--electric) / 0.07) 1px,
+    hsl(var(--brand) / 0.06) 1px,
     transparent 1px
   );
-  background-size: 22px 22px;
+  background-size: 28px 28px;
+}
+.sport-grid {
+  background-image:
+    linear-gradient(hsl(var(--brand) / 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(var(--brand) / 0.06) 1px, transparent 1px);
+  background-size: 44px 44px;
 }
