@@ -1,14 +1,26 @@
 import Icon from '@/components/ui/icon';
 
-const PLAYER_IMG = 'https://cdn.poehali.dev/projects/f8da45ff-6aab-40de-9eea-01ccb40b7a9d/files/c6a63ffb-da86-47a6-bf09-11c7a0437684.jpg';
+const CDN = 'https://cdn.poehali.dev/projects/f8da45ff-6aab-40de-9eea-01ccb40b7a9d/files';
+const IMG_PLAYER = `${CDN}/9b93b030-e451-4f69-98a8-70e801927a90.jpg`;
+const IMG_TEAM = `${CDN}/bf642d54-ec8b-4687-af63-77f1641662da.jpg`;
+const IMG_BALL = `${CDN}/c871e101-27ea-43de-bba3-c4ae059c2776.jpg`;
+
+const TELEGRAM = 'https://t.me/bluntblonde';
+const VK = 'https://vk.ru/blunt7blonde';
 
 const players = [
-  { name: 'Анна Соколова', num: '7', role: 'Связующая', height: '182', points: 412, blocks: 88, aces: 56 },
-  { name: 'Мария Орлова', num: '12', role: 'Доигровщица', height: '189', points: 638, blocks: 142, aces: 91 },
-  { name: 'Екатерина Лис', num: '4', role: 'Центральная', height: '194', points: 521, blocks: 203, aces: 34 },
-  { name: 'Дарья Волкова', num: '9', role: 'Либеро', height: '171', points: 0, blocks: 0, aces: 0, special: '94% приём' },
-  { name: 'Ольга Рябова', num: '15', role: 'Диагональная', height: '190', points: 712, blocks: 96, aces: 78 },
-  { name: 'София Зайцева', num: '21', role: 'Доигровщица', height: '185', points: 489, blocks: 110, aces: 64 },
+  { name: 'Анна Соколова', num: '7', role: 'Связующая', height: '182' },
+  { name: 'Мария Орлова', num: '12', role: 'Доигровщица', height: '189' },
+  { name: 'Екатерина Лис', num: '4', role: 'Центральная', height: '194' },
+  { name: 'Дарья Волкова', num: '9', role: 'Либеро', height: '171' },
+  { name: 'Ольга Рябова', num: '15', role: 'Диагональная', height: '190' },
+  { name: 'София Зайцева', num: '21', role: 'Доигровщица', height: '185' },
+];
+
+const reviews = [
+  { name: 'Анна', text: 'В «Импульсе» я впервые почувствовала, что значит настоящая команда. Здесь не дают сдаться.' },
+  { name: 'Мария', text: 'Тренировки заряжают на неделю вперёд. Девочки стали мне как сёстры, а площадка — вторым домом.' },
+  { name: 'Дарья', text: 'Каждая игра — как полёт. Тренеры верят в нас больше, чем мы сами. Это вдохновляет двигаться выше.' },
 ];
 
 const Index = () => {
@@ -17,159 +29,173 @@ const Index = () => {
       {/* NAV */}
       <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-background/70 border-b border-white/10">
         <div className="container flex items-center justify-between h-16">
-          <a href="#top" className="flex items-center gap-2">
-            <span className="grid place-items-center w-9 h-9 rounded-md bg-brand -rotate-6">
-              <Icon name="Volleyball" size={22} className="text-white" />
-            </span>
-            <span className="font-display text-2xl font-700 tracking-wider">ВИХРЬ</span>
+          <a href="#top" className="flex items-center gap-3">
+            <span className="grid place-items-center w-9 h-9 rounded-full border border-electric/60 text-electric font-display text-2xl font-500">И</span>
+            <span className="font-display text-2xl font-500 tracking-[0.25em]">ИМПУЛЬС</span>
           </a>
-          <nav className="hidden md:flex items-center gap-8 font-display uppercase text-sm tracking-widest">
-            <a href="#roster" className="hover:text-brand transition-colors">Состав</a>
-            <a href="#contacts" className="hover:text-brand transition-colors">Контакты</a>
+          <nav className="hidden md:flex items-center gap-8 uppercase text-xs tracking-[0.2em] text-foreground/70">
+            <a href="#about" className="hover:text-electric transition-colors">Клуб</a>
+            <a href="#sections" className="hover:text-electric transition-colors">Разделы</a>
+            <a href="#team" className="hover:text-electric transition-colors">Команда</a>
+            <a href="#join" className="hover:text-electric transition-colors">В команду</a>
           </nav>
-          <a href="#contacts" className="bg-brand text-white font-display uppercase text-sm tracking-wider px-5 py-2 rounded-md hover:scale-105 transition-transform">
-            В клуб
+          <a href="#join" className="bg-electric text-background uppercase text-xs tracking-[0.2em] px-5 py-2 rounded-full hover:scale-105 transition-transform">
+            Заявка
           </a>
         </div>
       </header>
 
-      {/* HERO */}
-      <section id="top" className="relative grain pt-16 min-h-screen flex items-center">
-        <div className="absolute -top-20 -left-32 w-[40rem] h-[40rem] rounded-full bg-brand/20 blur-[120px]" />
-        <div className="absolute top-40 right-0 w-[30rem] h-[30rem] rounded-full bg-electric/20 blur-[120px]" />
+      {/* HERO — logo letter + socials */}
+      <section id="top" className="relative grain min-h-screen flex items-center justify-center text-center">
+        <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[45rem] h-[45rem] rounded-full bg-brand/30 blur-[140px]" />
+        <div className="absolute bottom-0 right-10 w-[28rem] h-[28rem] rounded-full bg-electric/15 blur-[130px]" />
 
-        <div className="container relative grid lg:grid-cols-2 gap-10 items-center py-16">
-          <div className="opacity-0 animate-slide-in-x" style={{ animationDelay: '0.1s' }}>
-            <span className="inline-flex items-center gap-2 text-electric font-display uppercase tracking-[0.3em] text-xs mb-5">
-              <span className="w-8 h-px bg-electric" /> Высшая лига · сезон 2026
-            </span>
-            <h1 className="font-display font-700 uppercase leading-[0.85] text-6xl sm:text-7xl xl:text-8xl">
-              Женский<br />
-              волейбольный<br />
-              <span className="text-brand">клуб «Вихрь»</span>
-            </h1>
-            <p className="mt-6 max-w-md text-lg text-foreground/70">
-              Сила, скорость и характер. Команда, которая держит подачу даже когда трибуны затихают.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <a href="#roster" className="bg-brand text-white font-display uppercase tracking-wider px-7 py-3 rounded-md hover:scale-105 transition-transform">
-                Наши игроки
-              </a>
-              <a href="#contacts" className="border border-white/25 font-display uppercase tracking-wider px-7 py-3 rounded-md hover:bg-white/5 transition-colors">
-                Связаться
-              </a>
-            </div>
-            <div className="mt-12 flex gap-10">
-              {[['18', 'Игроков'], ['2', 'Кубка'], ['12', 'Сезонов']].map(([n, l]) => (
-                <div key={l}>
-                  <div className="font-display text-4xl font-700 text-electric">{n}</div>
-                  <div className="uppercase text-xs tracking-widest text-foreground/50">{l}</div>
-                </div>
-              ))}
-            </div>
+        <div className="container relative py-24 flex flex-col items-center">
+          <div className="opacity-0 animate-fade-up grid place-items-center w-40 h-40 sm:w-52 sm:h-52 rounded-full border border-electric/50">
+            <span className="font-display text-electric text-[7rem] sm:text-[9rem] leading-none font-300">И</span>
           </div>
+          <h1 className="mt-8 font-display font-300 tracking-[0.3em] text-5xl sm:text-7xl opacity-0 animate-fade-up" style={{ animationDelay: '0.15s' }}>
+            ИМПУЛЬС
+          </h1>
+          <p className="mt-3 uppercase text-xs sm:text-sm tracking-[0.4em] text-foreground/60 opacity-0 animate-fade-up" style={{ animationDelay: '0.25s' }}>
+            Женский волейбольный клуб
+          </p>
 
-          <div className="relative opacity-0 animate-fade-up" style={{ animationDelay: '0.35s' }}>
-            <div className="absolute inset-0 bg-brand rotate-3 rounded-2xl" />
-            <img src={PLAYER_IMG} alt="Игрок ВИХРЬ" className="relative rounded-2xl diag-clip object-cover w-full aspect-[4/5] shadow-2xl" />
-            <div className="absolute -bottom-5 -left-5 bg-background border border-white/10 rounded-xl px-5 py-3">
-              <div className="font-display text-3xl font-700 text-brand">#12</div>
-              <div className="uppercase text-xs tracking-widest text-foreground/60">Капитан</div>
-            </div>
+          <div className="mt-10 flex flex-wrap justify-center gap-4 opacity-0 animate-fade-up" style={{ animationDelay: '0.4s' }}>
+            <a href={TELEGRAM} target="_blank" rel="noopener noreferrer"
+              className="flex items-center gap-3 bg-electric text-background px-7 py-3 rounded-full uppercase text-xs tracking-[0.2em] hover:scale-105 transition-transform">
+              <Icon name="Send" size={18} /> Telegram
+            </a>
+            <a href={VK} target="_blank" rel="noopener noreferrer"
+              className="flex items-center gap-3 border border-white/25 px-7 py-3 rounded-full uppercase text-xs tracking-[0.2em] hover:bg-white/5 transition-colors">
+              <Icon name="Share2" size={18} /> ВКонтакте
+            </a>
           </div>
+        </div>
+        <a href="#about" className="absolute bottom-8 left-1/2 -translate-x-1/2 text-foreground/40 animate-bounce">
+          <Icon name="ChevronDown" size={28} />
+        </a>
+      </section>
+
+      {/* ABOUT — title + photos + description + join button */}
+      <section id="about" className="container py-24">
+        <div className="text-center mb-14">
+          <h2 className="font-display font-300 text-5xl sm:text-6xl tracking-[0.15em]">О клубе «Импульс»</h2>
+          <span className="inline-block mt-4 w-20 h-px bg-electric" />
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-6 mb-12">
+          <img src={IMG_BALL} alt="Волейбол" className="rounded-2xl object-cover w-full h-72 md:h-96 opacity-0 animate-fade-up" />
+          <img src={IMG_TEAM} alt="Команда" className="rounded-2xl object-cover w-full h-72 md:h-96 opacity-0 animate-fade-up" style={{ animationDelay: '0.15s' }} />
+        </div>
+
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="font-display text-2xl sm:text-3xl font-300 leading-relaxed text-foreground/90">
+            «Импульс» — это не просто команда. Это сила характера, скорость мысли и вера друг в друга.
+            Здесь каждая подача рождает энергию, каждый блок — это шаг к победе, а каждая тренировка делает нас
+            сильнее, чем вчера. Мы играем сердцем — и это чувствуют трибуны.
+          </p>
+          <p className="mt-6 text-foreground/60 leading-relaxed">
+            Присоединяйся к клубу, где раскрываются таланты, рождаются легенды и куётся настоящая дружба.
+            Твой импульс к большому спорту начинается здесь.
+          </p>
+          <a href="#join" className="inline-flex items-center gap-3 mt-10 bg-electric text-background px-9 py-4 rounded-full uppercase text-sm tracking-[0.2em] hover:scale-105 transition-transform">
+            Попасть в команду <Icon name="ArrowRight" size={18} />
+          </a>
         </div>
       </section>
 
-      {/* MARQUEE */}
-      <div className="border-y border-white/10 bg-brand/10 py-4 overflow-hidden">
-        <div className="flex w-max animate-marquee whitespace-nowrap font-display uppercase text-2xl tracking-widest text-foreground/40">
-          {Array(8).fill(0).map((_, i) => (
-            <span key={i} className="mx-6 flex items-center gap-6">Вперёд, Вихрь <Icon name="Volleyball" size={20} className="text-brand" /></span>
+      {/* SECTIONS — schedule / competitions / team */}
+      <section id="sections" className="border-y border-white/10 bg-white/[0.02] py-20">
+        <div className="container grid md:grid-cols-3 gap-6">
+          {[
+            { icon: 'CalendarDays', title: 'Расписание клуба', desc: 'Тренировки и игры на неделю', href: '#sections' },
+            { icon: 'Trophy', title: 'Соревнования клуба', desc: 'Турниры, лиги и кубки сезона', href: '#sections' },
+            { icon: 'Users', title: 'Наша команда', desc: 'Игроки клуба «Импульс»', href: '#team' },
+          ].map((s, i) => (
+            <a key={s.title} href={s.href}
+              className="group relative rounded-2xl border border-white/10 bg-background p-8 hover:border-electric/60 transition-colors opacity-0 animate-fade-up overflow-hidden"
+              style={{ animationDelay: `${i * 0.1}s` }}>
+              <div className="absolute -right-8 -top-8 w-28 h-28 rounded-full bg-electric/10 group-hover:bg-electric/20 transition-colors" />
+              <Icon name={s.icon} size={34} className="text-electric relative" />
+              <h3 className="mt-6 font-display text-3xl font-400 tracking-wide relative">{s.title}</h3>
+              <p className="mt-2 text-foreground/55 relative">{s.desc}</p>
+              <span className="mt-6 inline-flex items-center gap-2 text-electric uppercase text-xs tracking-[0.2em] relative">
+                Открыть <Icon name="ArrowRight" size={14} className="group-hover:translate-x-1 transition-transform" />
+              </span>
+            </a>
           ))}
         </div>
-      </div>
+      </section>
 
-      {/* ROSTER */}
-      <section id="roster" className="container py-24">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
-          <h2 className="font-display font-700 uppercase text-5xl sm:text-6xl leading-none">
-            Состав<br /><span className="text-stroke">команды</span>
-          </h2>
-          <p className="max-w-sm text-foreground/60">Профили спортсменок с актуальной статистикой текущего сезона.</p>
+      {/* TEAM */}
+      <section id="team" className="container py-24">
+        <div className="text-center mb-14">
+          <h2 className="font-display font-300 text-5xl sm:text-6xl tracking-[0.15em]">Наша команда</h2>
+          <p className="mt-3 text-foreground/55">Спортсменки клуба «Импульс»</p>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {players.map((p, i) => (
-            <article
-              key={p.num}
-              className="group relative rounded-2xl border border-white/10 bg-white/[0.03] overflow-hidden hover:border-brand/60 transition-colors opacity-0 animate-fade-up"
-              style={{ animationDelay: `${i * 0.08}s` }}
-            >
-              <div className="relative h-64 overflow-hidden">
-                <img src={PLAYER_IMG} alt={p.name} className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500" />
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
-                <span className="absolute top-3 right-4 font-display font-700 text-6xl text-brand/90">{p.num}</span>
-                <span className="absolute bottom-3 left-4 uppercase text-xs tracking-widest bg-electric text-background px-3 py-1 rounded-full font-600">{p.role}</span>
+            <article key={p.num}
+              className="group relative rounded-2xl border border-white/10 bg-white/[0.03] overflow-hidden hover:border-electric/60 transition-colors opacity-0 animate-fade-up"
+              style={{ animationDelay: `${i * 0.08}s` }}>
+              <div className="relative h-72 overflow-hidden">
+                <img src={IMG_PLAYER} alt={p.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
+                <span className="absolute top-4 right-5 font-display font-500 text-6xl text-electric/90">{p.num}</span>
+                <span className="absolute bottom-4 left-5 uppercase text-[11px] tracking-[0.2em] bg-electric text-background px-3 py-1 rounded-full">{p.role}</span>
               </div>
-              <div className="p-5">
-                <h3 className="font-display text-2xl font-600 uppercase tracking-wide">{p.name}</h3>
-                <div className="flex items-center gap-2 text-foreground/50 text-sm mt-1">
-                  <Icon name="Ruler" size={14} /> {p.height} см
-                </div>
-                <div className="grid grid-cols-3 gap-2 mt-4 text-center">
-                  {p.special ? (
-                    <div className="col-span-3 bg-white/[0.04] rounded-lg py-3">
-                      <div className="font-display text-xl font-700 text-electric">{p.special}</div>
-                      <div className="uppercase text-[10px] tracking-widest text-foreground/40">Надёжность</div>
-                    </div>
-                  ) : (
-                    <>
-                      <Stat value={p.points} label="Очки" />
-                      <Stat value={p.blocks} label="Блоки" />
-                      <Stat value={p.aces} label="Эйсы" />
-                    </>
-                  )}
-                </div>
+              <div className="p-5 flex items-center justify-between">
+                <h3 className="font-display text-2xl font-400 tracking-wide">{p.name}</h3>
+                <span className="flex items-center gap-1 text-foreground/50 text-sm"><Icon name="Ruler" size={14} /> {p.height} см</span>
               </div>
             </article>
           ))}
         </div>
+
+        {/* REVIEWS */}
+        <div className="mt-24 text-center mb-12">
+          <h3 className="font-display font-300 text-4xl sm:text-5xl tracking-[0.15em]">Отзывы девушек</h3>
+          <span className="inline-block mt-4 w-16 h-px bg-electric" />
+        </div>
+        <div className="grid md:grid-cols-3 gap-6">
+          {reviews.map((r, i) => (
+            <figure key={r.name}
+              className="rounded-2xl border border-white/10 bg-white/[0.03] p-8 opacity-0 animate-fade-up"
+              style={{ animationDelay: `${i * 0.1}s` }}>
+              <Icon name="Quote" size={28} className="text-electric/70" />
+              <blockquote className="mt-4 font-display text-xl font-300 leading-relaxed text-foreground/90">«{r.text}»</blockquote>
+              <figcaption className="mt-5 uppercase text-xs tracking-[0.2em] text-electric">{r.name}</figcaption>
+            </figure>
+          ))}
+        </div>
       </section>
 
-      {/* CONTACTS */}
-      <section id="contacts" className="relative grain border-t border-white/10 py-24">
-        <div className="container grid lg:grid-cols-2 gap-12">
-          <div>
-            <h2 className="font-display font-700 uppercase text-5xl sm:text-6xl leading-none mb-6">
-              Хочешь <span className="text-brand">в команду?</span>
-            </h2>
-            <p className="text-foreground/60 max-w-md mb-8">
-              Приходи на тренировку, познакомься с тренерским штабом и почувствуй атмосферу клуба «Вихрь».
-            </p>
-            <div className="space-y-4 font-display uppercase tracking-wide">
-              <ContactRow icon="MapPin" title="Зал" value="г. Москва, ул. Спортивная, 24" />
-              <ContactRow icon="Phone" title="Телефон" value="+7 (495) 123-45-67" />
-              <ContactRow icon="Mail" title="Почта" value="club@vihr-volley.ru" />
-            </div>
-            <div className="flex gap-3 mt-8">
-              {['Instagram', 'Send', 'Youtube'].map((ic) => (
-                <a key={ic} href="#" className="grid place-items-center w-11 h-11 rounded-md border border-white/15 hover:bg-brand hover:border-brand transition-colors">
-                  <Icon name={ic} size={20} />
-                </a>
-              ))}
-            </div>
+      {/* JOIN */}
+      <section id="join" className="relative grain border-t border-white/10 py-24">
+        <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full bg-brand/30 blur-[130px]" />
+        <div className="container relative max-w-2xl">
+          <div className="text-center mb-10">
+            <h2 className="font-display font-300 text-5xl sm:text-6xl tracking-[0.15em]">Заявка в команду</h2>
+            <p className="mt-4 text-foreground/60">Оставь свои контакты — мы рассмотрим заявку и пригласим на просмотр.</p>
           </div>
-
-          <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-8">
-            <h3 className="font-display uppercase text-2xl tracking-wide mb-6">Записаться на просмотр</h3>
-            <div className="space-y-4">
-              <input placeholder="Ваше имя" className="w-full bg-white/5 border border-white/10 rounded-md px-4 py-3 outline-none focus:border-brand transition-colors" />
-              <input placeholder="Телефон" className="w-full bg-white/5 border border-white/10 rounded-md px-4 py-3 outline-none focus:border-brand transition-colors" />
-              <textarea placeholder="Сообщение" rows={4} className="w-full bg-white/5 border border-white/10 rounded-md px-4 py-3 outline-none focus:border-brand transition-colors resize-none" />
-              <button className="w-full bg-brand text-white font-display uppercase tracking-wider py-3 rounded-md hover:scale-[1.02] transition-transform">
-                Отправить заявку
-              </button>
-            </div>
+          <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-8 space-y-4">
+            <input placeholder="Имя и фамилия" className="w-full bg-white/5 border border-white/10 rounded-md px-4 py-3 outline-none focus:border-electric transition-colors" />
+            <input placeholder="Телефон" className="w-full bg-white/5 border border-white/10 rounded-md px-4 py-3 outline-none focus:border-electric transition-colors" />
+            <input placeholder="Возраст и амплуа" className="w-full bg-white/5 border border-white/10 rounded-md px-4 py-3 outline-none focus:border-electric transition-colors" />
+            <textarea placeholder="Расскажи о своём опыте" rows={4} className="w-full bg-white/5 border border-white/10 rounded-md px-4 py-3 outline-none focus:border-electric transition-colors resize-none" />
+            <button className="w-full bg-electric text-background uppercase tracking-[0.2em] py-4 rounded-md hover:scale-[1.02] transition-transform">
+              Отправить заявку
+            </button>
+          </div>
+          <div className="flex justify-center gap-4 mt-8">
+            <a href={TELEGRAM} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-foreground/70 hover:text-electric transition-colors uppercase text-xs tracking-[0.2em]">
+              <Icon name="Send" size={18} /> @bluntblonde
+            </a>
+            <a href={VK} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-foreground/70 hover:text-electric transition-colors uppercase text-xs tracking-[0.2em]">
+              <Icon name="Share2" size={18} /> ВКонтакте
+            </a>
           </div>
         </div>
       </section>
@@ -177,33 +203,14 @@ const Index = () => {
       {/* FOOTER */}
       <footer className="border-t border-white/10 py-8">
         <div className="container flex flex-col sm:flex-row items-center justify-between gap-4 text-foreground/50 text-sm">
-          <div className="flex items-center gap-2 font-display text-xl tracking-wider text-foreground">
-            <Icon name="Volleyball" size={20} className="text-brand" /> ВИХРЬ
+          <div className="flex items-center gap-3 font-display text-xl tracking-[0.25em] text-foreground">
+            <span className="grid place-items-center w-8 h-8 rounded-full border border-electric/60 text-electric">И</span> ИМПУЛЬС
           </div>
-          <span>© 2026 ВК «Вихрь». Все права защищены.</span>
+          <span>© 2026 ВК «Импульс». Все права защищены.</span>
         </div>
       </footer>
     </div>
   );
 };
-
-const Stat = ({ value, label }: { value: number; label: string }) => (
-  <div className="bg-white/[0.04] rounded-lg py-3">
-    <div className="font-display text-xl font-700">{value}</div>
-    <div className="uppercase text-[10px] tracking-widest text-foreground/40">{label}</div>
-  </div>
-);
-
-const ContactRow = ({ icon, title, value }: { icon: string; title: string; value: string }) => (
-  <div className="flex items-center gap-4">
-    <span className="grid place-items-center w-11 h-11 rounded-md bg-brand/15 text-brand shrink-0">
-      <Icon name={icon} size={20} />
-    </span>
-    <div className="normal-case">
-      <div className="text-[11px] uppercase tracking-widest text-foreground/40">{title}</div>
-      <div className="text-foreground/90">{value}</div>
-    </div>
-  </div>
-);
 
 export default Index;
